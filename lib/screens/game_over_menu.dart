@@ -20,6 +20,7 @@ class GameOverMenu extends StatelessWidget {
         ),
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Padding(
                 padding: EdgeInsets.symmetric(
@@ -28,7 +29,7 @@ class GameOverMenu extends StatelessWidget {
                 child: Text(
                   'Game Over',
                   style: TextStyle(
-                    fontSize: 70,
+                    fontSize: 50,
                   ),
                 ),
               ),
@@ -39,27 +40,26 @@ class GameOverMenu extends StatelessWidget {
                 child: Text(
                   "Score: ${gameRef.score}",
                   style: const TextStyle(
-                    fontSize: 70,
+                    fontSize: 50,
                   ),
                 ),
               ),
-              SizedBox(
-                width: 400,
-                height: 100,
-                child: ElevatedButton(
-                  onPressed: () {
-                    gameRef.overlays.remove(GameOverMenu.id);
-                    gameRef.reset();
-                    gameRef.resumeEngine();
-                  },
-                  child: const Text(
+              ElevatedButton(
+                onPressed: () {
+                  gameRef.overlays.remove(GameOverMenu.id);
+                  gameRef.reset();
+                  gameRef.resumeEngine();
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
                     'Play Again?',
                     style: TextStyle(
-                      fontSize: 50,
+                      fontSize: 30,
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
