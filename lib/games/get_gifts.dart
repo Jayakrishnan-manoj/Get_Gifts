@@ -1,6 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:get_gifts/components/background_component.dart';
+import 'package:get_gifts/components/gift_component.dart';
 import 'package:get_gifts/components/santa_component.dart';
 import 'package:get_gifts/input/joystick.dart';
 
@@ -11,5 +12,6 @@ class GetGifts extends FlameGame with HasDraggables{
     add(BackGroundComponent());
     add(SantaComponent(joystick: joystick));
     add(joystick);
+    add(GiftComponent());
   }
 }
