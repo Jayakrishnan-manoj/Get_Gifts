@@ -1,7 +1,6 @@
 import 'package:flame/game.dart';
 import 'package:flame/components.dart';
 import 'package:flame/palette.dart';
-import 'package:flame/text.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:get_gifts/components/background_component.dart';
@@ -11,6 +10,7 @@ import 'package:get_gifts/components/santa_component.dart';
 import 'package:get_gifts/input/joystick.dart';
 
 import '../constants/globals.dart';
+import '../screens/game_over_menu.dart';
 
 class GetGifts extends FlameGame with HasDraggables, HasCollisionDetection {
   int score = 0;
@@ -86,6 +86,7 @@ class GetGifts extends FlameGame with HasDraggables, HasCollisionDetection {
       onTick: () {
         if (_remainingTime == 0) {
           pauseEngine();
+          overlays.add(GameOverMenu.id);
         } else {
           _remainingTime--;
         }
@@ -100,5 +101,10 @@ class GetGifts extends FlameGame with HasDraggables, HasCollisionDetection {
     _timer.update(dt);
     _score.text = 'Score: $score';
     time.text = 'Time: $_remainingTime secs';
+  }
+
+  void reset() {
+    score = 0;
+    _remainingTime = 30;
   }
 }
