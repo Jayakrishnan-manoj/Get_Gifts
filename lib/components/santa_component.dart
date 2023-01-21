@@ -13,7 +13,7 @@ class SantaComponent extends SpriteGroupComponent<MovementState>
     with HasGameRef<GetGifts> {
   final double _spriteHeight = 200;
 
-  final double _speed = 500;
+  final double _speed = 400;
 
   late double _rightBound;
   late double _leftBound;

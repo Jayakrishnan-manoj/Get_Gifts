@@ -1,3 +1,4 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/game.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:get_gifts/components/background_component.dart';
@@ -39,5 +40,7 @@ class GetGifts extends FlameGame with HasDraggables, HasCollisionDetection {
         startPosition: Vector2(size.x - 340, size.y - 130),
       ),
     );
+
+    add(ScreenHitbox());
   }
 }
