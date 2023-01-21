@@ -9,7 +9,7 @@ class GetGifts extends FlameGame with HasDraggables{
   Future<void> onLoad() async {
     await super.onLoad();
     add(BackGroundComponent());
-    add(SantaComponent());
+    add(SantaComponent(joystick: joystick));
     add(joystick);
   }
 }
