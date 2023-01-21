@@ -1,8 +1,8 @@
-import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:get_gifts/components/background_component.dart';
 import 'package:get_gifts/components/gift_component.dart';
+import 'package:get_gifts/components/ice_component.dart';
 import 'package:get_gifts/components/santa_component.dart';
 import 'package:get_gifts/input/joystick.dart';
 
@@ -27,6 +27,17 @@ class GetGifts extends FlameGame with HasDraggables, HasCollisionDetection {
       [
         Globals.itemGrabSound,
       ],
+    );
+
+    add(
+      IceComponent(
+        startPosition: Vector2(130, 130),
+      ),
+    );
+    add(
+      IceComponent(
+        startPosition: Vector2(size.x - 130, size.y - 130),
+      ),
     );
   }
 }
