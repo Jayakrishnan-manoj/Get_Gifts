@@ -24,9 +24,10 @@ class MainMenu extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 50),
                 child: Text(
-                  'Gift Grab',
+                  'Get Gifts',
                   style: TextStyle(
                     fontSize: 70,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -34,7 +35,6 @@ class MainMenu extends StatelessWidget {
                 width: 200,
                 height: 70,
                 child: ElevatedButton(
-                  
                   onPressed: () {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
