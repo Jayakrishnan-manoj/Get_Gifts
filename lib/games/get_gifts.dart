@@ -41,12 +41,12 @@ class GetGifts extends FlameGame with HasDraggables, HasCollisionDetection {
 
     add(
       IceComponent(
-        startPosition: Vector2(340, 140),
+        startPosition: Vector2(250, 100),
       ),
     );
     add(
       IceComponent(
-        startPosition: Vector2(size.x - 340, size.y - 130),
+        startPosition: Vector2(size.x-200, size.y-80),
       ),
     );
 

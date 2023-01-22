@@ -14,7 +14,7 @@ enum MovementState {
 
 class SantaComponent extends SpriteGroupComponent<MovementState>
     with HasGameRef<GetGifts>, CollisionCallbacks {
-  final double _spriteHeight = 200;
+  final double _spriteHeight = 100;
 
   final double _speed = 400;
 
@@ -26,7 +26,7 @@ class SantaComponent extends SpriteGroupComponent<MovementState>
   JoystickComponent joystick;
 
   bool _isFrozen = false;
-  final Timer _timer = Timer(3);
+  final Timer _timer = Timer(2);
 
   SantaComponent({required this.joystick});
 

@@ -9,7 +9,7 @@ import 'package:get_gifts/constants/globals.dart';
 
 class GiftComponent extends SpriteComponent
     with HasGameRef<GetGifts>, CollisionCallbacks {
-  final double _spriteHeight = 130;
+  final double _spriteHeight = 100;
 
   final Random _random = Random();
 

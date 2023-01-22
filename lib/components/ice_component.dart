@@ -10,7 +10,7 @@ import 'package:get_gifts/constants/globals.dart';
 
 class IceComponent extends SpriteComponent
     with HasGameRef<GetGifts>, CollisionCallbacks {
-  final double _spriteHeight = 130;
+  final double _spriteHeight = 100;
   final Vector2 startPosition;
 
   late Vector2 _velocity;
@@ -56,7 +56,7 @@ class IceComponent extends SpriteComponent
         _velocity.y = _velocity.y;
       }
 
-      if (collisionPoint.x == gameRef.size.x) {
+      if (collisionPoint.x == gameRef.canvasSize.x) {
         _velocity.x = -_velocity.x;
         _velocity.y = _velocity.y;
       }
@@ -66,7 +66,7 @@ class IceComponent extends SpriteComponent
         _velocity.y = -_velocity.y;
       }
 
-      if (collisionPoint.y == gameRef.size.y) {
+      if (collisionPoint.y == gameRef.canvasSize.y) {
         _velocity.x = _velocity.x;
         _velocity.y = -_velocity.y;
       }
