@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flame/game.dart';
 import 'package:flame/components.dart';
 import 'package:flame/palette.dart';
@@ -39,16 +41,32 @@ class GetGifts extends FlameGame with HasDraggables, HasCollisionDetection {
       ],
     );
 
+    Random random = Random();
+    double x = random.nextDouble() * (size.x - 100);
+    double y = random.nextDouble() * (size.y - 100);
+
     add(
       IceComponent(
-        startPosition: Vector2(250, 100),
+        startPosition: Vector2(x, y),
       ),
     );
+
     add(
       IceComponent(
-        startPosition: Vector2(size.x-200, size.y-80),
+        startPosition: Vector2(x, y),
       ),
     );
+
+    // add(
+    //   IceComponent(
+    //     startPosition: Vector2(180, 60),
+    //   ),
+    // );
+    // add(
+    //   IceComponent(
+    //     startPosition: Vector2(size.x - 100, size.y - 100),
+    //   ),
+    // );
 
     add(ScreenHitbox());
 

@@ -1,9 +1,6 @@
 import 'dart:ui';
-
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame_audio/flame_audio.dart';
-import 'package:flutter/cupertino.dart';
 import 'dart:math' as math;
 import 'package:get_gifts/games/get_gifts.dart';
 import 'package:get_gifts/constants/globals.dart';
@@ -42,33 +39,64 @@ class IceComponent extends SpriteComponent
   void update(dt) {
     super.update(dt);
     position += _velocity * dt;
+    if (position.x < 0) {
+      _velocity.x = -_velocity.x;
+      position.x = 0;
+    }
+    if (position.x > gameRef.size.x - width) {
+      _velocity.x = -_velocity.x;
+      position.x = gameRef.size.x - width;
+    }
+    if (position.y < 0) {
+      _velocity.y = -_velocity.y;
+      position.y = 0;
+    }
+    if (position.y > gameRef.size.y - height) {
+      _velocity.y = -_velocity.y;
+      position.y = gameRef.size.y - height;
+    }
   }
 
   @override
+  // void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+  //   super.onCollision(intersectionPoints, other);
+
+  //   if (other is ScreenHitbox) {
+  //     final Vector2 collisionPoint = intersectionPoints.first;
+
+  //     if (collisionPoint.x == 0) {
+  //       _velocity.x = -_velocity.x;
+  //       _velocity.y = _velocity.y;
+  //     }
+
+  //     if (collisionPoint.x == gameRef.size.x) {
+  //       _velocity.x = -_velocity.x;
+  //       _velocity.y = _velocity.y;
+  //     }
+
+  //     if (collisionPoint.y == 0) {
+  //       _velocity.x = _velocity.x;
+  //       _velocity.y = -_velocity.y;
+  //     }
+
+  //     if (collisionPoint.y == gameRef.size.y) {
+  //       _velocity.x = _velocity.x;
+  //       _velocity.y = -_velocity.y;
+  //     }
+  //   }
+  // }
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
 
     if (other is ScreenHitbox) {
       final Vector2 collisionPoint = intersectionPoints.first;
 
-      if (collisionPoint.x == 0) {
-        _velocity.x = -_velocity.x;
-        _velocity.y = _velocity.y;
+      if (collisionPoint.x == 0 || collisionPoint.x == gameRef.size.x) {
+        _velocity = Vector2(-_velocity.x, _velocity.y);
       }
 
-      if (collisionPoint.x == gameRef.canvasSize.x) {
-        _velocity.x = -_velocity.x;
-        _velocity.y = _velocity.y;
-      }
-
-      if (collisionPoint.y == 0) {
-        _velocity.x = _velocity.x;
-        _velocity.y = -_velocity.y;
-      }
-
-      if (collisionPoint.y == gameRef.canvasSize.y) {
-        _velocity.x = _velocity.x;
-        _velocity.y = -_velocity.y;
+      if (collisionPoint.y == 0 || collisionPoint.y == gameRef.size.y) {
+        _velocity = Vector2(_velocity.x, -_velocity.y);
       }
     }
   }
