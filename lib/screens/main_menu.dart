@@ -26,7 +26,7 @@ class MainMenu extends StatelessWidget {
                 child: Text(
                   'Get Gifts',
                   style: TextStyle(
-                    fontSize: 70,
+                    fontSize: 50,
                     color: Colors.white,
                   ),
                 ),
@@ -45,7 +45,7 @@ class MainMenu extends StatelessWidget {
                   child: const Text(
                     "Play",
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 35,
                     ),
                   ),
                 ),

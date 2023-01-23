@@ -58,33 +58,6 @@ class IceComponent extends SpriteComponent
   }
 
   @override
-  // void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
-  //   super.onCollision(intersectionPoints, other);
-
-  //   if (other is ScreenHitbox) {
-  //     final Vector2 collisionPoint = intersectionPoints.first;
-
-  //     if (collisionPoint.x == 0) {
-  //       _velocity.x = -_velocity.x;
-  //       _velocity.y = _velocity.y;
-  //     }
-
-  //     if (collisionPoint.x == gameRef.size.x) {
-  //       _velocity.x = -_velocity.x;
-  //       _velocity.y = _velocity.y;
-  //     }
-
-  //     if (collisionPoint.y == 0) {
-  //       _velocity.x = _velocity.x;
-  //       _velocity.y = -_velocity.y;
-  //     }
-
-  //     if (collisionPoint.y == gameRef.size.y) {
-  //       _velocity.x = _velocity.x;
-  //       _velocity.y = -_velocity.y;
-  //     }
-  //   }
-  // }
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
 
